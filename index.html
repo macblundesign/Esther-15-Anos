@@ -38,21 +38,21 @@ html, body {
     display: none;
 }
 
-/* Proporção original do envelope: 3236 x 4425 */
+/* Envelope: proporção original de 3236 x 4425 */
 .arte-envelope {
     position: relative;
     width: min(100vw, calc(100vh * 3236 / 4425));
     aspect-ratio: 3236 / 4425;
 }
 
-/* Proporção original do convite: 3236 x 5994 */
+/* Convite: proporção original de 3236 x 5994 */
 .arte-convite {
     position: relative;
     width: min(100vw, calc(100vh * 3236 / 5994));
     aspect-ratio: 3236 / 5994;
 }
 
-/* Imagens */
+/* Imagens ocupam exatamente a área de seus respectivos contêineres */
 .arte-envelope img,
 .arte-convite img {
     display: block;
@@ -97,21 +97,6 @@ html, body {
     left: 60%;
     top: 80%;
 }
-
-/* Botão para tentar abrir no Chrome do Android */
-.abrir-navegador {
-    position: fixed;
-    top: 10px;
-    right: 10px;
-    z-index: 100;
-    padding: 10px 14px;
-    border-radius: 20px;
-    background: #fff;
-    color: #222;
-    font: 14px Arial, sans-serif;
-    text-decoration: none;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-}
 </style>
 </head>
 
@@ -123,6 +108,7 @@ html, body {
     <div id="envelope" class="tela">
         <div class="arte-envelope">
             <img src="Envelope.png" alt="Envelope">
+
             <div class="lacre" onclick="abrirConvite()"></div>
         </div>
     </div>
@@ -130,36 +116,19 @@ html, body {
     <!-- CONVITE -->
     <div id="convite" class="tela">
         <div class="arte-convite">
-
-            <!-- Tentar abrir a página no Chrome do Android -->
-            <a
-                class="abrir-navegador"
-                href="intent://macblundesign.github.io/Esther-15-Anos/#Intent;scheme=https;package=com.android.chrome;end"
-                target="_blank"
-                rel="noopener">
-                Abrir no navegador
-            </a>
-
             <img src="Convite.png" alt="Convite">
 
-            <!-- LOCALIZAÇÃO -->
-            <div
-                class="botao localizacao"
-                onclick="abrirLink('https://maps.app.goo.gl/HbZhvGYtLUhTJ5sFA')">
+            <div class="botao localizacao"
+                 onclick="abrirLink('https://maps.app.goo.gl/HbZhvGYtLUhTJ5sFA')">
             </div>
 
-            <!-- PRESENTES -->
-            <div
-                class="botao presente"
-                onclick="abrirLink('https://drive.google.com/file/d/1ffSAqs13aapm8B6C-TKGGKoJl52UiiZz/view?usp=sharing')">
+            <div class="botao presente"
+                 onclick="abrirLink('https://drive.google.com/file/d/1ffSAqs13aapm8B6C-TKGGKoJl52UiiZz/view?usp=sharing')">
             </div>
 
-            <!-- CONFIRMAÇÃO DE PRESENÇA -->
-            <div
-                class="botao rsvp"
-                onclick="abrirLink('https://wa.me/+5562992041324')">
+            <div class="botao rsvp"
+                 onclick="abrirLink('https://wa.me/+5562992041324')">
             </div>
-
         </div>
     </div>
 
@@ -174,7 +143,6 @@ function abrirConvite() {
     document.getElementById('convite').style.display = 'flex';
 
     const musica = document.getElementById('musica');
-
     musica.play().catch(() => {});
 }
 
